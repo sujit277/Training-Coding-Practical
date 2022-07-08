@@ -1,0 +1,26 @@
+<div class="col-4 mx-auto">
+  <div class="col-5 mx-auto">
+    <button class="btn btn-primary" (click)="getAllProductsFromService()">Get Data</button>
+  </div>
+</div>
+<table class="table table-hover table-bordered">
+  <thead class="thead-dark">
+    <th>Product ID</th>
+    <th>Product Name</th>
+    <th>Product Description</th>
+    <th>Cost</th>
+    <th>Action</th>
+  </thead>
+  <tbody *ngFor="let products of arrProductList">
+    <tr>
+      <td>{{products.productId}}</td>
+      <td>{{products.productName}}</td>
+      <td>{{products.productDescription}}</td>
+      <td>{{products.cost}}</td>
+      <td>
+        <button type="button" class="btn btn-danger">Edit</button>&nbsp;
+        <button type="button" class="btn btn-warning">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

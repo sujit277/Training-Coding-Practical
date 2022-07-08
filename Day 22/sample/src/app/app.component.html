@@ -1,0 +1,61 @@
+<!-- Template Driven Forms -->
+
+<!-- <div class="container-fluid" style="background-color: antiquewhite;height: 575px;">
+  <div class="row">
+    <div class="col-6 mx-auto mt-5">
+      <h1 style="text-align: center;">Template Driven Forms</h1>
+      <form>
+        <div class="mb-3">
+          <label for="username" class="form-label">Email address</label>
+          <input type="text" class="form-control" id="username" name="username" [(ngModel)]="formUserName">
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="text" class="form-control" id="password" name="password" [(ngModel)]="formPassword">
+        </div>
+        <div class="col-4 mx-auto">
+          <button type="button" class="btn btn-primary" (click)="login()">Submit</button>&nbsp;
+          <button type="reset" class="btn btn-primary">Reset</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div> -->
+
+
+<!-- Reactive Forms -->
+
+<div class="container-fluid" style="background-color:azure;height: 575px;">
+  <div class="row">
+    <div class="col-6 mx-auto mt-5">
+      <h1 style="text-align: center;">Validation in Reactive Forms</h1>
+      <form [formGroup]="Login">
+        <div class="mb-3">
+          <label for="username" class="form-label">User Name</label>
+          <input type="text" class="form-control" formControlName="username" id="username" name="username">
+        </div>
+        <div *ngIf="username?.invalid && (username?.dirty || username?.touched)">
+          <div *ngIf="username?.errors?.['required']">
+            <p style="color: red; font-size: 12px">UserName is required</p>
+          </div>
+          <div *ngIf="username?.errors?.['userNameNotAvailable']">
+            <p style="color: red; font-size: 12px">Username not available</p>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="text" class="form-control" formControlName="password" id="password" name="password">
+        </div>
+        <div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+          <div *ngIf="password?.errors?.['required']">
+            <p style="color: red; font-size: 12px">Password is required</p>
+          </div>
+        </div>
+        <div class="col-4 mx-auto">
+          <button type="submit" class="btn btn-primary">Submit</button>&nbsp;
+          <button type="reset" class="btn btn-primary">Reset</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
